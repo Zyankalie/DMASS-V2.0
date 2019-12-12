@@ -1,0 +1,54 @@
+﻿<Window x:Class="DMASS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ribbon="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
+        xmlns:local="clr-namespace:DMASS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        d:DataContext="{Binding MainWindowViewModel}">
+    <DockPanel>
+        <ribbon:Ribbon DockPanel.Dock="Top">
+            <RibbonTab Name="Start" Header="Start">
+                <RibbonGroup Name="Durchsuchen">
+                    <RibbonButton Name="Autoren" Label="Autoren" Command="{Binding NewAuthorListTabCommand}"/>
+                    <RibbonButton Name="Dokumente" Label="Dokumente" Command="{Binding NewDocumentListTabCommand}"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Name="Einstellungen" Header="Einstellungen">
+
+            </RibbonTab>
+        </ribbon:Ribbon>
+
+        <TabControl ItemsSource="{Binding Tabs}">
+            <TabControl.Resources>
+                <DataTemplate DataType="{x:Type local:DateTab}">
+                    <local:DateTabView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:AuthorTab}">
+                    <local:AuthorTabView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:AuthorListTab}">
+                    <local:AuthorListTabView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:DocumentTab}">
+                    <local:DocumentTabView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:DocumentListTab}">
+                    <local:DocumentListTabView/>
+                </DataTemplate>
+            </TabControl.Resources>
+
+            <TabControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:ITab}">
+                    <TextBlock>
+                        <Run Text="{Binding Name}"/>
+                        <Hyperlink Command="{Binding CloseCommand}">X</Hyperlink>
+                    </TextBlock>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+        </TabControl>
+    </DockPanel>
+</Window>

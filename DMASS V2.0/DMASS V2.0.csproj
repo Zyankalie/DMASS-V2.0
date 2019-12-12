@@ -56,10 +56,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Author.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="AuthorDetailTab.cs" />
+    <Compile Include="ActionCommand.cs" />
+    <Compile Include="Tab.cs" />
+    <Compile Include="AuthorDetailTabView.xaml.cs">
+      <DependentUpon>AuthorDetailTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorListTabView.xaml.cs">
+      <DependentUpon>AuthorListTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentDetailTabView.xaml.cs">
+      <DependentUpon>DocumentDetailTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentListTabView.xaml.cs">
+      <DependentUpon>DocumentListTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportTabView.xaml.cs">
+      <DependentUpon>ImportTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistryKeyTabView.xaml.cs">
+      <DependentUpon>RegistryKeyTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsTabView.xaml.cs">
+      <DependentUpon>SettingsTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="CustomTab.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -68,6 +97,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="AuthorDetailTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthorListTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentDetailTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentListTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistryKeyTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -95,5 +152,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,4 @@
-﻿using DMASS_V2._0.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DMASS_V2._0
+namespace DMASS
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"
@@ -21,5 +20,6 @@ namespace DMASS_V2._0
 
             view.ShowDialog();
         }
+        
     }
 }

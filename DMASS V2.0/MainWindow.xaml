@@ -5,17 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ribbon="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
         xmlns:local="clr-namespace:DMASS_V2._0"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DockPanel>
+        xmlns:controller="clr-namespace:DMASS_V2._0.Controller"
+        xmlns:ViewClasses="clr-namespace:DMASS_V2._0.Classes.ViewClasses"
+        xmlns:tabs="clr-namespace:DMASS_V2._0.View.Tabs"        
+        mc:Ignorable="d"        
+        Title="MainWindow" Height="630.738" Width="1221.721"
+        d:DataContext="{Binding MainWindowViewModel}">
+    <DockPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="0,0,0,0">
+        <StackPanel DockPanel.Dock="Top">
+            <Button Command="{Binding NewTabCommand}">New Tab</Button>
+        </StackPanel>
         <ribbon:Ribbon DockPanel.Dock="Top" Margin="0,-22">
-            <RibbonTab Name="Start" Header="Start">
-                <RibbonGroup Name ="grp1" Header="Gruppe1">
-                    <RibbonButton Name="btn1" Label="Speichern">                        
-                    </RibbonButton>
+            <RibbonTab Name="Start" Header="Start" Margin="0,0,0,9">
+                <RibbonGroup Name ="Allgemein" Header="Allgemein">
+                    <RibbonButton Name="rBtnClose" Label="Schließen" Height="80" Width="80"/>
+                </RibbonGroup>
+                <RibbonGroup Name ="infos" Header="Stöbern">
+                    <RibbonButton Name="rBtnDokumente" Label="Dokumente" Height="80" Width="80"/>
+                    <RibbonButton Name="rBtnAutoren" Label="Autoren" Width="80" Height="80"/>
                 </RibbonGroup>
             </RibbonTab>
-        </ribbon:Ribbon>      
+            <RibbonTab Name="ImportCenter" Header="Import-Center">
+            </RibbonTab>
+            <RibbonTab Name="Einstellungen" Header="Einstellungen">
+            </RibbonTab>
+        </ribbon:Ribbon>
+        <TabControl Margin="0,22,0,0" ItemSource="{Binding Tabs}">
+            <TabControl.Resources>
+                <DataTemplate DataType="AuthorDetailTab">
+                    <AuthorDetailTabView/>
+                </DataTemplate>
+            </TabControl.Resources>
+            <TabControl.ItemTemplate>
+                <DataTemplate DataType="controller:CustomTab">
+                    <TextBlock>
+                        <Run Text="{Binding Name}"/>
+                        <Hyperlink Command="{Binding CloseCommand}">X</Hyperlink>
+                    </TextBlock>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </TabControl>
     </DockPanel>
-    
 </Window>

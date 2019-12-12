@@ -1,5 +1,4 @@
-﻿using DMASS_V2._0.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace DMASS_V2._0
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für DocumentDetailView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DocumentDetailView : UserControl
     {
-        public MainWindow()
+        public DocumentDetailView()
         {
             InitializeComponent();
         }
