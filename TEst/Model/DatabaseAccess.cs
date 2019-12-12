@@ -13,11 +13,11 @@ namespace DMASS
 {
     public class DatabaseAccess
     {
-        public static List<SmallAuthorObject> Test()
+        public static List<SmallAuthorObject> SelectAuthorList(string FirstName, string LastName)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<SmallAuthorObject>("SELECT * FROM AUTHOR", new DynamicParameters());
+                var output = cnn.Query<SmallAuthorObject>("SELECT * FROM AUTHOR WHERE (FIRSTNAME LIKE '%)" + FirstName + "%' AND (LASTNAME LIKE '%"+ LastName+"%')");
                 return output.ToList();
             }
         }

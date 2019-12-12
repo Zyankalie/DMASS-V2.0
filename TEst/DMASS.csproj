@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ActionCommand.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Model\DatabaseAccess.cs" />
     <Compile Include="Model\Objects\AuthorObject.cs" />
     <Compile Include="Model\Objects\DocumentObject.cs" />

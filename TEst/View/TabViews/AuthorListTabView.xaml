@@ -5,11 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DMASS"            
              mc:Ignorable="d"            
+             d:DataContext="{Binding AuthorListTabViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Background="#A9A9A9" Height="100">
+            <TextBox Text="{Binding LastName}" HorizontalAlignment="Left" Margin="95,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="165" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding FirstName}" HorizontalAlignment="Left" Margin="95,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="165" VerticalContentAlignment="Center"/>
+            <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Height="29" Width="80" RenderTransformOrigin="2.462,4.556"/>
+            <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="29" Width="80" RenderTransformOrigin="2.462,4.556"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="265,21,0,0" VerticalAlignment="Top" Width="76" Height="58" Command="{Binding RunSelectCommand}"/>
 
-    <DockPanel LastChildFill="True">
-        <Label DockPanel.Dock="Top" FontSize="48" FontFamily="Mistral" Foreground="#696969">Saved!</Label>
-        <Rectangle DockPanel.Dock="Bottom" Height="64" Fill="#ECECEC"/>
-        <Label DockPanel.Dock="Top" Content="{Binding Info}" VerticalContentAlignment="Bottom"/>
+        </Grid>
+        <DataGrid>
+
+        </DataGrid>
     </DockPanel>
 </UserControl>

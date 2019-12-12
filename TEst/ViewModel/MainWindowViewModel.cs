@@ -13,12 +13,10 @@ namespace DMASS
 {
     public class MainWindowViewModel
     {
-        
         private readonly ObservableCollection<ITab> tabs;
         private AuthorListTabViewModel altvm;
         public MainWindowViewModel()
         {
-            NewTabCommand = new ActionCommand(p => NewTab());
             NewAuthorTabCommand = new ActionCommand(p => NewAuthorTab());
             NewAuthorListTabCommand = new ActionCommand(p => NewAuthorListTab());
             NewDocumentTabCommand = new ActionCommand(p => NewAuthorTab());
@@ -38,23 +36,19 @@ namespace DMASS
         public ICommand NewDocumentListTabCommand { get; }
         public ICollection<ITab> Tabs { get; }
 
-        private void NewTab()
-        {
-            
-        }
-
         private void NewDocumentListTab()
-        {        
-            Tabs.Add(new DocumentListTab());            
+        {
+            Tabs.Add(new DocumentListTab());
         }
         private void NewAuthorListTab()
         {
-            Tabs.Add(new AuthorListTab());
+
             altvm = new AuthorListTabViewModel();
 
             AuthorListTabView view = new AuthorListTabView();
-            view.DataContext = altvm;
-            
+            Tabs.Add(new AuthorListTab() { Content = view, DataContext = altvm });
+
+
         }
 
         private void NewAuthorTab()
@@ -86,7 +80,7 @@ namespace DMASS
     }
 
     enum TabKind
-    { 
+    {
         AuthorTab,
         AuthorListTab,
         DocumentTab,

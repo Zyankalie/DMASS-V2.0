@@ -22,30 +22,11 @@
         </ribbon:Ribbon>
 
         <TabControl ItemsSource="{Binding Tabs}">
-            <TabControl.Resources>
-                <DataTemplate DataType="{x:Type local:DateTab}">
-                    <local:DateTabView/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type local:AuthorTab}">
-                    <local:AuthorTabView/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type local:AuthorListTab}">
-                    <local:AuthorListTabView/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type local:DocumentTab}">
-                    <local:DocumentTabView/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type local:DocumentListTab}">
-                    <local:DocumentListTabView/>
-                </DataTemplate>
-            </TabControl.Resources>
-
             <TabControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:ITab}">
-                    <TextBlock>
-                        <Run Text="{Binding Name}"/>
-                        <Hyperlink Command="{Binding CloseCommand}">X</Hyperlink>
-                    </TextBlock>
+                    <TabItem>
+                        <TabItem.Header>Header</TabItem.Header>                                                   
+                    </TabItem>
                 </DataTemplate>
             </TabControl.ItemTemplate>
 
