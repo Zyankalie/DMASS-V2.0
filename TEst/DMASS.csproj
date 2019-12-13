@@ -84,6 +84,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ActionCommand.cs" />
+    <Compile Include="CloseableHeader.xaml.cs">
+      <DependentUpon>CloseableHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Model\DatabaseAccess.cs" />
     <Compile Include="Model\Objects\AuthorObject.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Model\Tabs\DocumentListTab.cs" />
     <Compile Include="Model\Tabs\DocumentTab.cs" />
     <Compile Include="ViewModel\AuthorListTabViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="View\TabViews\AuthorListTabView.xaml.cs">
       <DependentUpon>AuthorListTabView.xaml</DependentUpon>
     </Compile>
@@ -106,7 +110,6 @@
     <Compile Include="View\TabViews\DateTabView.xaml.cs">
       <DependentUpon>DateTabView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Tabs\ITab.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Model\Tabs\Tab.cs" />
     <Compile Include="View\TabViews\DocumentListTabView.xaml.cs">
@@ -115,6 +118,10 @@
     <Compile Include="View\TabViews\DocumentTabView.xaml.cs">
       <DependentUpon>DocumentTabView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CloseableHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TabViews\AuthorListTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

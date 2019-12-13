@@ -13,8 +13,8 @@ namespace DMASS
 {
     public class MainWindowViewModel
     {
-        private readonly ObservableCollection<ITab> tabs;
-        private AuthorListTabViewModel altvm;
+        private readonly ObservableCollection<Tab> tabs;
+        private List<BaseViewModel> models;
         public MainWindowViewModel()
         {
             NewAuthorTabCommand = new ActionCommand(p => NewAuthorTab());
@@ -22,7 +22,8 @@ namespace DMASS
             NewDocumentTabCommand = new ActionCommand(p => NewAuthorTab());
             NewDocumentListTabCommand = new ActionCommand(p => NewDocumentListTab());
 
-            tabs = new ObservableCollection<ITab>();
+            models = new List<BaseViewModel>();            
+            tabs = new ObservableCollection<Tab>();
             tabs.CollectionChanged += Tabs_CollectionChanged;
 
             Tabs = tabs;
@@ -34,7 +35,7 @@ namespace DMASS
         public ICommand NewAuthorListTabCommand { get; }
         public ICommand NewDocumentTabCommand { get; }
         public ICommand NewDocumentListTabCommand { get; }
-        public ICollection<ITab> Tabs { get; }
+        public ICollection<Tab> Tabs { get; }
 
         private void NewDocumentListTab()
         {
@@ -42,13 +43,10 @@ namespace DMASS
         }
         private void NewAuthorListTab()
         {
-
-            altvm = new AuthorListTabViewModel();
-
+            AuthorListTabViewModel altvm = new AuthorListTabViewModel();
+            models.Add(altvm);
             AuthorListTabView view = new AuthorListTabView();
-            Tabs.Add(new AuthorListTab() { Content = view, DataContext = altvm });
-
-
+            Tabs.Add(new AuthorListTab() { Content = view, DataContext = altvm });                        
         }
 
         private void NewAuthorTab()
@@ -58,16 +56,16 @@ namespace DMASS
 
         private void Tabs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            ITab tab;
+            Tab tab;
 
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    tab = (ITab)e.NewItems[0];
+                    tab = (Tab)e.NewItems[0];
                     tab.CloseRequested += OnTabCloseRequested;
                     break;
                 case NotifyCollectionChangedAction.Remove:
-                    tab = (ITab)e.OldItems[0];
+                    tab = (Tab)e.OldItems[0];
                     tab.CloseRequested -= OnTabCloseRequested;
                     break;
             }
@@ -75,7 +73,9 @@ namespace DMASS
 
         private void OnTabCloseRequested(object sender, EventArgs e)
         {
-            Tabs.Remove((ITab)sender);
+            Tabs.Remove((Tab)sender);
+            models.Remove((BaseViewModel)(((Tab)sender).DataContext));
+            
         }
     }
 

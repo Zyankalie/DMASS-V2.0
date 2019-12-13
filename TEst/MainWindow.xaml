@@ -22,14 +22,6 @@
         </ribbon:Ribbon>
 
         <TabControl ItemsSource="{Binding Tabs}">
-            <TabControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:ITab}">
-                    <TabItem>
-                        <TabItem.Header>Header</TabItem.Header>                                                   
-                    </TabItem>
-                </DataTemplate>
-            </TabControl.ItemTemplate>
-
         </TabControl>
     </DockPanel>
 </Window>

@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace DMASS
 {
-    class AuthorListTabViewModel
+    class AuthorListTabViewModel:BaseViewModel
     {
         public BindableCollection<SmallAuthorObject> Authors { get; set; }
         public ICommand RunSelectCommand { get; set; }
@@ -20,7 +20,6 @@ namespace DMASS
             set
             {
                 _FirstName = value;
-                RaisePropertyChanged("firstname");
             }
         }
 
@@ -31,7 +30,6 @@ namespace DMASS
             set
             {
                 _LastName = value;
-                RaisePropertyChanged("lastname");
             }
         }
 
