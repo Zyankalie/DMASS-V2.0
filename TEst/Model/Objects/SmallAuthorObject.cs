@@ -13,5 +13,6 @@ namespace DMASS
         public string FirstName { get; }
         public string LastName { get; }
 
+      
     }
 }

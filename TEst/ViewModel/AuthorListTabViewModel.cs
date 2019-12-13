@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,9 @@ namespace DMASS
 {
     class AuthorListTabViewModel:BaseViewModel
     {
-        public BindableCollection<SmallAuthorObject> Authors { get; set; }
+        
+        public ObservableCollection<SmallAuthorObject> Authors { get; set; }
+        
         public ICommand RunSelectCommand { get; set; }
         public string Info { get; set; }
         private string _FirstName { get; set; }
@@ -36,14 +39,18 @@ namespace DMASS
         public AuthorListTabViewModel()
         {
             RunSelectCommand = new ActionCommand(p => RunSelect());
-            Authors = new BindableCollection<SmallAuthorObject>();
+            Authors = new ObservableCollection<SmallAuthorObject>();
+            
         }
 
         private void RunSelect()
         {
-            Authors = null;
-            Authors.Refresh();
-            //Authors = new BindableCollection<SmallAuthorObject>(DatabaseAccess.SelectAuthorList(FirstName, LastName));           
+            Authors.Clear();
+            ObservableCollection<SmallAuthorObject> tmp = new ObservableCollection<SmallAuthorObject>(DatabaseAccess.SelectAuthorList(FirstName, LastName));
+            foreach (var item in tmp)
+            {
+                Authors.Add(item);
+            }
         }
     }
 }

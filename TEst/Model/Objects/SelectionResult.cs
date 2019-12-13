@@ -8,6 +8,5 @@ namespace DMASS
 {
     public interface SelectionResult
     {
-        int Id { get; }
     }
 }
