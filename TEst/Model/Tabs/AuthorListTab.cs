@@ -11,7 +11,7 @@ namespace DMASS
     {
         public AuthorListTab()
         {
-            Name = "Autoren";            
+            Title = "Autoren";         
         }
     }
 }

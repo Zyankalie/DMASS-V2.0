@@ -15,8 +15,8 @@
             <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="29" Width="80" RenderTransformOrigin="2.462,4.556"/>
             <Button Content="Button" HorizontalAlignment="Left" Margin="265,21,0,0" VerticalAlignment="Top" Width="76" Height="58" Command="{Binding RunSelectCommand}"/>
         </Grid>
-        <DataGrid>
-
+        <DataGrid ItemsSource="{Binding Authors}">
+            
         </DataGrid>
     </DockPanel>
 </UserControl>

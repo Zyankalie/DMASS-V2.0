@@ -12,7 +12,7 @@
                 FontWeight="Bold" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
                 FontStretch="Normal" Visibility="Visible"
                 FontSize="14" Padding="0" ToolTip="Close"/>
-        <Label Content="TabItem" Height="23" HorizontalAlignment="Left"
+        <Label Height="23" HorizontalAlignment="Left"
                Margin="4,1,0,0" Name="label_TabTitle" VerticalAlignment="Top"
                FontFamily="Courier" FontSize="12"/>
     </Grid>

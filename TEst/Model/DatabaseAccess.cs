@@ -17,7 +17,7 @@ namespace DMASS
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<SmallAuthorObject>("SELECT * FROM AUTHOR WHERE (FIRSTNAME LIKE '%)" + FirstName + "%' AND (LASTNAME LIKE '%"+ LastName+"%')");
+                var output = cnn.Query<SmallAuthorObject>("SELECT * FROM AUTHOR WHERE (FIRSTNAME LIKE '%" + FirstName + "%') AND (LASTNAME LIKE '%" + LastName + "%')");
                 return output.ToList();
             }
         }

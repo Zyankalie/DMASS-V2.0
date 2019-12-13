@@ -17,7 +17,6 @@ namespace DMASS
             //CloseCommand = new ActionCommand(p => CloseRequested?.Invoke(this, EventArgs.Empty));
             CloseableHeader cth = new CloseableHeader();
             this.Header = cth;
-
             // Attach to the CloseableHeader events
             // (Mouse Enter/Leave, Button Click, and Label resize)
             cth.button_close.MouseEnter +=
@@ -90,9 +89,7 @@ namespace DMASS
                 ((CloseableHeader)this.Header).label_TabTitle.Content = value;
             }
         }
-        public new string Name { get; set; }
         public ICommand CloseCommand { get; }
-        public event EventHandler CloseRequested;
-        //public BaseViewModel bvm { get; set; }        
+        public event EventHandler CloseRequested;    
     }
 }

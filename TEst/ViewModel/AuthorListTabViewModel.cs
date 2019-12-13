@@ -33,21 +33,17 @@ namespace DMASS
             }
         }
 
-        private void RaisePropertyChanged(string v)
-        {
-            throw new NotImplementedException();
-        }
-
         public AuthorListTabViewModel()
         {
             RunSelectCommand = new ActionCommand(p => RunSelect());
-            //Authors = new BindableCollection<SmallAuthorObject>(DatabaseAccess.Test());
+            Authors = new BindableCollection<SmallAuthorObject>();
         }
 
         private void RunSelect()
         {
-            //Authors = new BindableCollection<SmallAuthorObject>(DatabaseAccess.SelectAuthorList(FirstName, LastName));
-            Console.WriteLine("yoyo");
+            Authors = null;
+            Authors.Refresh();
+            //Authors = new BindableCollection<SmallAuthorObject>(DatabaseAccess.SelectAuthorList(FirstName, LastName));           
         }
     }
 }
