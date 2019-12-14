@@ -24,5 +24,11 @@ namespace DMASS
         {
             InitializeComponent();
         }
+        
+        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            AuthorListTabViewModel avm = this.DataContext as AuthorListTabViewModel;
+            avm.DoubleClickEvent.Execute(null);
+        }
     }
 }

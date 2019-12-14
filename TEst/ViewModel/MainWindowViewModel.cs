@@ -1,12 +1,7 @@
-﻿using Caliburn.Micro;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace DMASS
@@ -46,7 +41,7 @@ namespace DMASS
             AuthorListTabViewModel altvm = new AuthorListTabViewModel();
             models.Add(altvm);
             AuthorListTabView view = new AuthorListTabView();
-            Tabs.Add(new AuthorListTab() { Content = view, DataContext = altvm });                        
+            Tabs.Add(new AuthorListTab() { Content = view, DataContext = altvm} );                        
         }
 
         private void NewAuthorTab()
@@ -77,13 +72,5 @@ namespace DMASS
             models.Remove((BaseViewModel)(((Tab)sender).DataContext));
             
         }
-    }
-
-    enum TabKind
-    {
-        AuthorTab,
-        AuthorListTab,
-        DocumentTab,
-        DocumentListTab
     }
 }

@@ -15,8 +15,26 @@
             <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="29" Width="80" RenderTransformOrigin="2.462,4.556"/>
             <Button Content="Button" HorizontalAlignment="Left" Margin="265,21,0,0" VerticalAlignment="Top" Width="76" Height="58" Command="{Binding RunSelectCommand}"/>
         </Grid>
-        <DataGrid ItemsSource="{Binding Authors, Mode=TwoWay}">
-            
-        </DataGrid>
+        <ListView ItemsSource="{Binding Authors, Mode=TwoWay}" SelectedItem="{Binding SelectedAuthor}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="OnMouseDoubleClick"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}"
+                                    Header="Vorname" Width="100"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}"
+                                    Header="Nachname" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--<DataGrid ItemsSource="{Binding Authors, Mode=TwoWay}" 
+                  SelectionMode="Single"
+                  CurrentCell="{Binding CellInfo, Mode=TwoWay}">
+            SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}"                  
+        </DataGrid>-->
     </DockPanel>
 </UserControl>
