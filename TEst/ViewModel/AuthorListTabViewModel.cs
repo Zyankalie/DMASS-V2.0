@@ -15,10 +15,10 @@ namespace DMASS
     class AuthorListTabViewModel:BaseViewModel
     {
         public ObservableCollection<SmallAuthorObject> Authors { get; set; }
+        public MainWindowViewModel Parent { get; set; }
         public SmallAuthorObject SelectedAuthor { get; set; }
         public ICommand RunSelectCommand { get; set; }
         public ICommand DoubleClickEvent { get; set; }
-        public string Info { get; set; }
         private string _FirstName { get; set; }
         public string FirstName
         {
@@ -27,7 +27,7 @@ namespace DMASS
             {
                 _FirstName = value;
             }
-        }
+        } 
 
         private string _LastName { get; set; }
         public string LastName
@@ -37,7 +37,7 @@ namespace DMASS
             {
                 _LastName = value;
             }
-        }
+        } 
 
         
 
@@ -47,10 +47,21 @@ namespace DMASS
             Authors = new ObservableCollection<SmallAuthorObject>();
             DoubleClickEvent = new ActionCommand(p => On_DoubleClick());
         }
+        public AuthorListTabViewModel(string FirstName, string LastName)
+        {
+            RunSelectCommand = new ActionCommand(p => RunSelect());
+            Authors = new ObservableCollection<SmallAuthorObject>();
+            DoubleClickEvent = new ActionCommand(p => On_DoubleClick());
+            this._LastName = LastName;
+            this._FirstName = FirstName;
+            RunSelect();
+        }
+
 
         private void On_DoubleClick()
         {
             Console.WriteLine(this.SelectedAuthor.FirstName + this.SelectedAuthor.LastName);
+            this.Parent.NewAuthorTab(this.FirstName, this.LastName, this, SelectedAuthor);
         }
 
         private void RunSelect()

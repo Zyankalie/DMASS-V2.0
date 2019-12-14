@@ -9,15 +9,17 @@ namespace DMASS
     public class MainWindowViewModel
     {
         private readonly ObservableCollection<Tab> tabs;
+        public Tab SelectedTab;
         private List<BaseViewModel> models;
         public MainWindowViewModel()
         {
-            NewAuthorTabCommand = new ActionCommand(p => NewAuthorTab());
+            //NewAuthorTabCommand = new ActionCommand(p => NewAuthorTab());
             NewAuthorListTabCommand = new ActionCommand(p => NewAuthorListTab());
-            NewDocumentTabCommand = new ActionCommand(p => NewAuthorTab());
+            //NewDocumentTabCommand = new ActionCommand(p => NewDocumentTab());
             NewDocumentListTabCommand = new ActionCommand(p => NewDocumentListTab());
+            //NewAuthorTabCommandParams = new ActionCommand(p => NewAuthorTab());
 
-            models = new List<BaseViewModel>();            
+            models = new List<BaseViewModel>();
             tabs = new ObservableCollection<Tab>();
             tabs.CollectionChanged += Tabs_CollectionChanged;
 
@@ -27,6 +29,7 @@ namespace DMASS
 
         public ICommand NewTabCommand { get; }
         public ICommand NewAuthorTabCommand { get; }
+        public ICommand NewAuthorTabCommandParams { get; }
         public ICommand NewAuthorListTabCommand { get; }
         public ICommand NewDocumentTabCommand { get; }
         public ICommand NewDocumentListTabCommand { get; }
@@ -38,15 +41,44 @@ namespace DMASS
         }
         private void NewAuthorListTab()
         {
-            AuthorListTabViewModel altvm = new AuthorListTabViewModel();
-            models.Add(altvm);
+            AuthorListTabViewModel altvm = new AuthorListTabViewModel() { Parent = this };
             AuthorListTabView view = new AuthorListTabView();
-            Tabs.Add(new AuthorListTab() { Content = view, DataContext = altvm} );                        
+
+            Tab AuthorListTab = new AuthorListTab() { Content = view, DataContext = altvm };
+
+            models.Add(altvm);
+            this.SelectedTab = AuthorListTab;
+            Tabs.Add(AuthorListTab);
         }
 
-        private void NewAuthorTab()
+        public void NewAuthorListTab(string FirstName, string LastName, BaseViewModel bmv)
         {
-            Tabs.Add(new AuthorTab());
+            Tabs.Remove(SelectedTab);
+            models.Remove(bmv);
+
+            AuthorListTabViewModel altvm = new AuthorListTabViewModel(FirstName, LastName) { Parent = this };
+            AuthorListTabView view = new AuthorListTabView();
+
+            Tab AuthorListTab = new AuthorListTab() { Content = view, DataContext = altvm };
+            SelectedTab = AuthorListTab;
+            models.Add(altvm);
+
+            Tabs.Add(AuthorListTab);
+        }
+
+        public void NewAuthorTab(string FirstName, string LastName, BaseViewModel bmv, SmallAuthorObject SmallAuthorObject)
+        {
+            Tabs.Remove(SelectedTab);
+            models.Remove(bmv);
+
+            AuthorTabViewModel atvm = new AuthorTabViewModel(FirstName, LastName, SmallAuthorObject, this);
+            AuthorTabView view = new AuthorTabView();
+
+            Tab AuthorTab = new AuthorTab(SmallAuthorObject.FirstName + " " + SmallAuthorObject.LastName) { Content = view, DataContext = atvm };
+            SelectedTab = AuthorTab;
+            models.Add(atvm);
+
+            Tabs.Add(AuthorTab);
         }
 
         private void Tabs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -70,7 +102,6 @@ namespace DMASS
         {
             Tabs.Remove((Tab)sender);
             models.Remove((BaseViewModel)(((Tab)sender).DataContext));
-            
         }
     }
 }

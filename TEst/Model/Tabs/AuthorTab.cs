@@ -8,9 +8,9 @@ namespace DMASS
 {
     class AuthorTab : Tab
     {
-        public AuthorTab()
+        public AuthorTab(string HeadLine)
         {
-            Name = "AuthorName";
+            Title = HeadLine;
         }
     }
 }

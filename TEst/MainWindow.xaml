@@ -21,7 +21,7 @@
             </RibbonTab>
         </ribbon:Ribbon>
 
-        <TabControl ItemsSource="{Binding Tabs}">
+        <TabControl ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab}">
         </TabControl>
     </DockPanel>
 </Window>
