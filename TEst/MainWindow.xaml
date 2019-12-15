@@ -11,9 +11,9 @@
     <DockPanel>
         <ribbon:Ribbon DockPanel.Dock="Top">
             <RibbonTab Name="Start" Header="Start">
-                <RibbonGroup Name="Durchsuchen">
-                    <RibbonButton Name="Autoren" Label="Autoren" Command="{Binding NewAuthorListTabCommand}"/>
-                    <RibbonButton Name="Dokumente" Label="Dokumente" Command="{Binding NewDocumentListTabCommand}"/>
+                <RibbonGroup Name="Durchsuchen" Header="Durchsuchen">
+                    <RibbonButton Name="Autoren" Label="Autoren" Command="{Binding NewAuthorListTabCommand}" Height="120" Width="80"/>
+                    <RibbonButton Name="Dokumente" Label="Dokumente" Command="{Binding NewDocumentListTabCommand}" Height="120" Width="80"/>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Name="Einstellungen" Header="Einstellungen">

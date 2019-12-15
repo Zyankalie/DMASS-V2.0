@@ -45,7 +45,7 @@ namespace DMASS
             AuthorListTabView view = new AuthorListTabView();
 
             Tab AuthorListTab = new AuthorListTab() { Content = view, DataContext = altvm };
-
+            AuthorListTab.IsSelected = true;
             models.Add(altvm);
             this.SelectedTab = AuthorListTab;
             Tabs.Add(AuthorListTab);
@@ -60,6 +60,7 @@ namespace DMASS
             AuthorListTabView view = new AuthorListTabView();
 
             Tab AuthorListTab = new AuthorListTab() { Content = view, DataContext = altvm };
+            AuthorListTab.IsSelected = true;
             SelectedTab = AuthorListTab;
             models.Add(altvm);
 
@@ -75,6 +76,7 @@ namespace DMASS
             AuthorTabView view = new AuthorTabView();
 
             Tab AuthorTab = new AuthorTab(SmallAuthorObject.FirstName + " " + SmallAuthorObject.LastName) { Content = view, DataContext = atvm };
+            AuthorTab.IsSelected = true;
             SelectedTab = AuthorTab;
             models.Add(atvm);
 

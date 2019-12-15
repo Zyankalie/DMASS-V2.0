@@ -1,29 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DMASS
 {
-    class AuthorObject
+    public class AuthorObject:DataSet
     {
 
-        public AuthorObject(SmallAuthorObject SmallAuthorObject)
+        public AuthorObject()
         {
-            Id = SmallAuthorObject.Id;
-            FirstName = SmallAuthorObject.FirstName;
-            LastName = SmallAuthorObject.LastName;
         }
-        public int Id{ get; }
-        public string FirstName { get; }
-        public string LastName { get; }
-        public string Born { get; }
-        public string Died { get; }
-        public Place Domicile { get; }
-        public Place BirthPlace { get; }
-        public string Job { get; }
-        public string SororityJoin { get; }
-        public string Memo { get; }
+        public SmallAuthorObject Author { get; set; }
+        public AuthorInformationObject Information { get; set; }                
+        public Place Domicile { get; set; }
+        public Place BirthPlace { get; set; }       
+
     }
 }

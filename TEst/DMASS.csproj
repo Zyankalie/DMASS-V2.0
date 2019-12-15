@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Model\DatabaseAccess.cs" />
+    <Compile Include="Model\Objects\AuthorInformationObject.cs" />
     <Compile Include="Model\Objects\AuthorObject.cs" />
     <Compile Include="Model\Objects\DocumentObject.cs" />
     <Compile Include="Model\Objects\Place.cs" />
