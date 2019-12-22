@@ -12,7 +12,9 @@
             <TextBox Text="{Binding FirstName,Mode=TwoWay}" HorizontalAlignment="Left" Margin="95,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="165" VerticalContentAlignment="Center"/>
             <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Height="29" Width="80" RenderTransformOrigin="2.462,4.556"/>
             <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="29" Width="80" RenderTransformOrigin="2.462,4.556"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="265,21,0,0" VerticalAlignment="Top" Width="76" Height="58" Command="{Binding RunSelectCommand}"/>
+            <Button HorizontalAlignment="Left" Margin="265,21,0,0" VerticalAlignment="Top" Width="58" Height="58" Command="{Binding RunSelectCommand}">
+                <Image Source="/View/Resources/Suchen_Autor.png"/>
+            </Button>
         </Grid>
         <ListView ItemsSource="{Binding Authors, Mode=TwoWay}" SelectedItem="{Binding SelectedAuthor}">
             <ListView.ItemContainerStyle>

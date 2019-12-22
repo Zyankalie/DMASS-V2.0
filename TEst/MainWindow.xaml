@@ -4,16 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ribbon="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
-        xmlns:local="clr-namespace:DMASS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        UseLayoutRounding="True"
         d:DataContext="{Binding MainWindowViewModel}">
     <DockPanel>
         <ribbon:Ribbon DockPanel.Dock="Top">
             <RibbonTab Name="Start" Header="Start">
                 <RibbonGroup Name="Durchsuchen" Header="Durchsuchen">
-                    <RibbonButton Name="Autoren" Label="Autoren" Command="{Binding NewAuthorListTabCommand}" Height="120" Width="80"/>
-                    <RibbonButton Name="Dokumente" Label="Dokumente" Command="{Binding NewDocumentListTabCommand}" Height="120" Width="80"/>
+                    <RibbonButton Name="Autoren" LargeImageSource="/View/Resources/Autor32.png" Label="Autoren" Command="{Binding NewAuthorListTabCommand}" Height="120" Width="80"/>
+                    <RibbonButton Name="Dokumente" LargeImageSource="/View/Resources/Dokument.png" Label="Dokumente" Command="{Binding NewDocumentListTabCommand}" Height="120" Width="80"/>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Name="Einstellungen" Header="Einstellungen">

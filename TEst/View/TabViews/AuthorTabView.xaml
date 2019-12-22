@@ -4,13 +4,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DMASS"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,26,0,0" TextWrapping="Wrap" Text="{Binding Author.Author.FirstName, Mode=OneWay}" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,68,0,0" TextWrapping="Wrap" Text="{Binding Author.Author.LastName, Mode=OneWay}" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="23" Width="70"/>
-        <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Height="23" Width="70"/>
+             mc:Ignorable="d">
+    <ScrollViewer>
+        <Grid>
 
-    </Grid>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,26,0,0" TextWrapping="Wrap" Text="{Binding Author.Author.FirstName, Mode=OneWay}" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,68,0,0" TextWrapping="Wrap" Text="{Binding Author.Author.LastName, Mode=OneWay}" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+            <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <DatePicker HorizontalAlignment="Left" Margin="145,116,0,0" VerticalAlignment="Top" Width="120"/>
+            <DatePicker HorizontalAlignment="Left" Margin="145,161,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.447,3.261"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <Label Content="Geboren am" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Gestorben am" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Job" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <DatePicker HorizontalAlignment="Left" Margin="145,259,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.447,3.261"/>
+            <Label Content="Beitritt Verbindung" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <RichTextBox HorizontalAlignment="Left" Height="505" Margin="908,63,0,0" VerticalAlignment="Top" Width="483">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label Content="Beschreibung" HorizontalAlignment="Left" Margin="908,26,0,0" VerticalAlignment="Top" Height="32" Width="115" RenderTransformOrigin="0.539,0.125"/>
+            <Image HorizontalAlignment="Left" Height="264" Margin="413,19,734,0" VerticalAlignment="Top" Width="244" Source="/View/Resources/Autor.png" ></Image>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="323,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" RenderTransformOrigin="1.017,0.696"/>
+            <Label Content="Land" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Region" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Stadt" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Postleitzahl" HorizontalAlignment="Left" Margin="10,505,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Straße" HorizontalAlignment="Left" Margin="10,546,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Nr." HorizontalAlignment="Left" Margin="284,550,0,0" VerticalAlignment="Top" Height="23" Width="34" RenderTransformOrigin="0.429,1.174"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="706,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <Label Content="Land" HorizontalAlignment="Left" Margin="413,360,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Region" HorizontalAlignment="Left" Margin="413,410,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Stadt" HorizontalAlignment="Left" Margin="413,458,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Postleitzahl" HorizontalAlignment="Left" Margin="413,505,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Straße" HorizontalAlignment="Left" Margin="413,546,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
+            <Label Content="Nr." HorizontalAlignment="Left" Margin="668,546,0,0" VerticalAlignment="Top" Height="32" Width="33"/>
+            <Label Content="Geburtsort" HorizontalAlignment="Left" Margin="413,317,0,0" VerticalAlignment="Top" Width="115"/>
+            <Label Content="Wohnort" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="115"/>
+        </Grid>
+    </ScrollViewer>
 </UserControl>
