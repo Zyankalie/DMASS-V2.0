@@ -12,13 +12,13 @@
             <TextBox HorizontalAlignment="Left" Height="23" Margin="145,68,0,0" TextWrapping="Wrap" Text="{Binding Author.Author.LastName, Mode=OneWay}" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
             <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
-            <DatePicker HorizontalAlignment="Left" Margin="145,116,0,0" VerticalAlignment="Top" Width="120"/>
-            <DatePicker HorizontalAlignment="Left" Margin="145,161,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.447,3.261"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <DatePicker HorizontalAlignment="Left" Margin="145,116,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Author.Information._Born, Mode=OneWay}"/>
+            <DatePicker HorizontalAlignment="Left" Margin="145,161,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.447,3.261" Text="{Binding Author.Information._Died, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Information.Job, Mode=OneWay}"/>
             <Label Content="Geboren am" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Gestorben am" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Job" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
-            <DatePicker HorizontalAlignment="Left" Margin="145,259,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.447,3.261"/>
+            <DatePicker HorizontalAlignment="Left" Margin="145,259,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.447,3.261" Text="{Binding Author.Information._SororityJoin, Mode=OneWay}"/>
             <Label Content="Beitritt Verbindung" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <RichTextBox HorizontalAlignment="Left" Height="505" Margin="908,63,0,0" VerticalAlignment="Top" Width="483">
                 <FlowDocument>
@@ -29,24 +29,24 @@
             </RichTextBox>
             <Label Content="Beschreibung" HorizontalAlignment="Left" Margin="908,26,0,0" VerticalAlignment="Top" Height="32" Width="115" RenderTransformOrigin="0.539,0.125"/>
             <Image HorizontalAlignment="Left" Height="264" Margin="413,19,734,0" VerticalAlignment="Top" Width="244" Source="/View/Resources/Autor.png" ></Image>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="323,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.Country, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.Region, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.City, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.Zip, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.Street, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="323,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.HouseNumber, Mode=OneWay}"/>
             <Label Content="Land" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Region" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Stadt" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Postleitzahl" HorizontalAlignment="Left" Margin="10,505,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Straße" HorizontalAlignment="Left" Margin="10,546,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Nr." HorizontalAlignment="Left" Margin="284,550,0,0" VerticalAlignment="Top" Height="23" Width="34" RenderTransformOrigin="0.429,1.174"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="706,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="706,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.BirthPlace.HouseNumber, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.BirthPlace.Street, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.BirthPlace.Zip, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.BirthPlace.City, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.BirthPlace.Region, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="533,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.BirthPlace.Country, Mode=OneWay}"/>
             <Label Content="Land" HorizontalAlignment="Left" Margin="413,360,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Region" HorizontalAlignment="Left" Margin="413,410,0,0" VerticalAlignment="Top" Height="32" Width="115"/>
             <Label Content="Stadt" HorizontalAlignment="Left" Margin="413,458,0,0" VerticalAlignment="Top" Height="32" Width="115"/>

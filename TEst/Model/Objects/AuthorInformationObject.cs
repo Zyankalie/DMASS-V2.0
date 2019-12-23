@@ -9,8 +9,20 @@ namespace DMASS
     public class AuthorInformationObject : SelectionResult
     {
         public int Id { get; set; }
-        public DateTime Born { get; }
-        public DateTime Died { get; }
+        public string _Born
+        {
+            get { return Born.ToShortDateString(); }
+        }
+        public string _Died
+        {
+            get { return Died.ToShortDateString(); }
+        }
+        public string _SororityJoin
+        {
+            get { return SororityJoin.ToShortDateString(); }
+        }
+        public DateTime Born;
+        public DateTime Died;
         public string Job { get; }
         public DateTime SororityJoin { get; }
         public string Memo { get; }
