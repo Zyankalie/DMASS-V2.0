@@ -2,14 +2,35 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Controls.Ribbon;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace DMASS
 {
-    public class MainWindowViewModel
-    {
-        private readonly ObservableCollection<Tab> tabs;
-        public Tab SelectedTab;
+    public class MainWindowViewModel : INotifyPropertyChanged
+    {        
+        private readonly ObservableCollection<Tab> tabs;   
+        public Tab SelectedTab { get; set; }
+        public BaseViewModel SelectedModel;
+        private Visibility hasContextTab;
+        public Visibility HasContextTab 
+        {
+            get
+            {
+                return hasContextTab;
+            }
+            set
+            {
+                hasContextTab = value;
+                OnPropertyChanged("HasContextTab");
+            }
+        }
+
+
         private List<BaseViewModel> models;
         public MainWindowViewModel()
         {
@@ -18,14 +39,15 @@ namespace DMASS
             //NewDocumentTabCommand = new ActionCommand(p => NewDocumentTab());
             NewDocumentListTabCommand = new ActionCommand(p => NewDocumentListTab());
             //NewAuthorTabCommandParams = new ActionCommand(p => NewAuthorTab());
-
+            HasContextTab = Visibility.Collapsed;
             models = new List<BaseViewModel>();
+
+            
             tabs = new ObservableCollection<Tab>();
             tabs.CollectionChanged += Tabs_CollectionChanged;
 
             Tabs = tabs;
         }
-
 
         public ICommand NewTabCommand { get; }
         public ICommand NewAuthorTabCommand { get; }
@@ -33,7 +55,7 @@ namespace DMASS
         public ICommand NewAuthorListTabCommand { get; }
         public ICommand NewDocumentTabCommand { get; }
         public ICommand NewDocumentListTabCommand { get; }
-        public ICollection<Tab> Tabs { get; }
+        public ICollection<Tab> Tabs { get; }        
 
         private void NewDocumentListTab()
         {
@@ -43,12 +65,19 @@ namespace DMASS
         {
             AuthorListTabViewModel altvm = new AuthorListTabViewModel() { Parent = this };
             AuthorListTabView view = new AuthorListTabView();
-
+            HasContextTab = Visibility.Visible;
             Tab AuthorListTab = new AuthorListTab() { Content = view, DataContext = altvm };
             AuthorListTab.IsSelected = true;
             models.Add(altvm);
             this.SelectedTab = AuthorListTab;
             Tabs.Add(AuthorListTab);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public void NewAuthorListTab(string FirstName, string LastName, BaseViewModel bmv)
@@ -100,10 +129,15 @@ namespace DMASS
             }
         }
 
+
         private void OnTabCloseRequested(object sender, EventArgs e)
         {
             Tabs.Remove((Tab)sender);
             models.Remove((BaseViewModel)(((Tab)sender).DataContext));
+            SelectedTab = null;
         }
+              
+
     }
+
 }

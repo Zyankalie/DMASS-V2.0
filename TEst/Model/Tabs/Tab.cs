@@ -26,7 +26,7 @@ namespace DMASS
             cth.button_close.Click +=
                new RoutedEventHandler(button_close_Click);
             cth.label_TabTitle.SizeChanged +=
-               new SizeChangedEventHandler(label_TabTitle_SizeChanged);
+            new SizeChangedEventHandler(label_TabTitle_SizeChanged);
 
             // Button MouseEnter - When the mouse is over the button - change color to Red
             void button_close_MouseEnter(object sender, MouseEventArgs e)
@@ -90,6 +90,7 @@ namespace DMASS
             }
         }
         public ICommand CloseCommand { get; }
-        public event EventHandler CloseRequested;    
+        public event EventHandler CloseRequested;
+        public bool HasContextTab;
     }
 }

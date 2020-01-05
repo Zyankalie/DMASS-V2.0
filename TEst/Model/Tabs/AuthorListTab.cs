@@ -12,7 +12,8 @@ namespace DMASS
     {
         public AuthorListTab()
         {
-            Title = "Autoren";                 
-        }
+            Title = "Autoren";
+            HasContextTab = true;
+        }   
     }
 }

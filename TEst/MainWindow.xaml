@@ -1,4 +1,50 @@
-﻿<Window x:Class="DMASS.MainWindow"
+﻿<Fluent:RibbonWindow x:Class="DMASS.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:Fluent="urn:fluent-ribbon"
+                 RenderOptions.BitmapScalingMode="HighQuality"
+                 UseLayoutRounding="True"
+                 Title="My first RibbonWindow">
+    <Fluent:RibbonWindow.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+    </Fluent:RibbonWindow.Resources>
+    <DockPanel>        
+        <Fluent:Ribbon DockPanel.Dock="Top">             
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+            <Fluent:RibbonTabItem Name="Start" Header="Start">
+                <Fluent:RibbonGroupBox Name="Durchsuchen" Header="Durchsuchen">
+                    <Fluent:Button Name="Autoren" Header="Autoren" Height="120" Width="80" Command="{Binding NewAuthorListTabCommand}" LargeIcon="View\Resources\Autor32.png"/>
+                    <Fluent:Button Name="Dokumente" Header="Dokumente" Height="120" Width="80" Command="{Binding NewDocumentListTabCommand}" LargeIcon="View\Resources\Dokument.png"/>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <Fluent:RibbonTabItem Name="Einstellungen" Header="Einstellungen">
+
+            </Fluent:RibbonTabItem>
+            <Fluent:RibbonTabItem Header="Bearbeiten" Background="LightSalmon" BorderBrush="LightSalmon" Visibility="{Binding HasContextTab, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                <Fluent:RibbonGroupBox Name="FunctionsAuthorList" Header="Grundfunktionen">
+                    <Fluent:Button Name="Close" Header="Schließen" Height="120" Width="80" LargeIcon="View\Resources\Schließen.png"/>
+                    <Fluent:Button Name="AddAuthor" Header="Hinzufügen" Height="120" Width="80" LargeIcon="View\Resources\Hinzufuegen.png"/>
+                    <Fluent:Button Name="DeleteAuthor" Header="Löschen" Height="120" Width="80"/>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Name="FunctionsAuthor" Header="Grundfunktionen">
+                    <Fluent:Button Name="SafeChanges" Header="Speichern" Height="120" Width="80" LargeIcon="View\Resources\Speichern.png"/>
+                    <Fluent:Button Name="DiscardChanges" Header="Verwerfen" Height="120" Width="80" LargeIcon="View\Resources\Verwerfen.png"/>
+                    <Fluent:Button Name="DeleteThisAuthor" Header="Löschen" Height="120" Width="80"/>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            
+        </Fluent:Ribbon>
+        <TabControl ItemsSource="{Binding Tabs}">
+        </TabControl>
+    </DockPanel>
+    
+</Fluent:RibbonWindow>
+    <!--<Window x:Class="DMASS.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,7 +56,7 @@
         UseLayoutRounding="True"
         d:DataContext="{Binding MainWindowViewModel}">
     <DockPanel>
-        <ribbon:Ribbon DockPanel.Dock="Top">
+        <ribbon:Ribbon DockPanel.Dock="Top">            
             <RibbonTab Name="Start" Header="Start">
                 <RibbonGroup Name="Durchsuchen" Header="Durchsuchen">
                     <RibbonButton Name="Autoren" LargeImageSource="/View/Resources/Autor32.png" Label="Autoren" Command="{Binding NewAuthorListTabCommand}" Height="120" Width="80"/>
@@ -20,9 +66,18 @@
             <RibbonTab Name="Einstellungen" Header="Einstellungen">
 
             </RibbonTab>
+            <ribbon:RibbonTab Name="EditAuthorList" Header="Autoren" ContextualTabGroupHeader="Bearbeiten">
+                <RibbonGroup Name="Functions" Header="Bearbeiten">
+                    <RibbonButton Name="Add" Label="Hinzufügen" LargeImageSource="/View/Resources/Hinzufuegen.png"></RibbonButton>
+                    <RibbonButton Name="Delete" Label="Löschen"></RibbonButton>
+                    <RibbonButton Name="Close" Label="Schließen" LargeImageSource="/View/Resources/Schließen.png"></RibbonButton>
+                </RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:Ribbon.ContextualTabGroups>
+                <ribbon:RibbonContextualTabGroup Header="Bearbeiten" Visibility="Visible" Background="Red" />
+            </ribbon:Ribbon.ContextualTabGroups>
         </ribbon:Ribbon>
-
         <TabControl ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab}">
         </TabControl>
     </DockPanel>
-</Window>
+</Window>-->

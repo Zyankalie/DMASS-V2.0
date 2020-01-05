@@ -28,7 +28,9 @@
                 </FlowDocument>
             </RichTextBox>
             <Label Content="Beschreibung" HorizontalAlignment="Left" Margin="908,26,0,0" VerticalAlignment="Top" Height="32" Width="115" RenderTransformOrigin="0.539,0.125"/>
-            <Image HorizontalAlignment="Left" Height="264" Margin="413,19,734,0" VerticalAlignment="Top" Width="244" Source="/View/Resources/Autor.png" ></Image>
+            <Border HorizontalAlignment="Left" Height="264" Margin="413,19,734,0" VerticalAlignment="Top" Width="244" BorderThickness="1" BorderBrush="#000000" >
+                <Image Source="/View/Resources/Autor.png" Opacity="1"/>
+            </Border>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="145,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.Country, Mode=OneWay}"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="145,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.Region, Mode=OneWay}"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="145,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.017,0.696" Text="{Binding Author.Domicile.City, Mode=OneWay}"/>
